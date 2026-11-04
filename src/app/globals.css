@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -10,8 +11,11 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-heading: var(--font-heading-family);
-  --font-sans: var(--font-body-family);
+  --font-serif: var(--font-instrument), "Instrument Serif", Georgia, serif;
+  --font-sans: var(--font-geist-sans), "Geist Sans", sans-serif;
+  --font-heading: var(--font-instrument), "Instrument Serif", Georgia, serif;
+  --font-display: "Syne", sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, monospace;
 }
 
 @layer base {
@@ -21,8 +25,6 @@
     --muted: #737373;
     --border: #e5e5e5;
     --ring: #737373;
-    --font-heading-family: Arial, Helvetica, sans-serif;
-    --font-body-family: Arial, Helvetica, sans-serif;
   }
 
   .dark {
@@ -39,7 +41,7 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-mono;
   }
 }
 

@@ -2,14 +2,14 @@ import { projects } from "@/data/projects";
 import { ProjectRow } from "@/components/project-row";
 
 export const metadata = {
-  title: "Work | yash patel",
-  description: "Selected projects and backend architecture by yash patel.",
+  title: "Work | Yash Patel",
+  description: "Selected projects and backend architecture by Yash Patel.",
 };
 
 export default function Work() {
   return (
-    <div className="w-full max-w-3xl mx-auto px-6 pt-20 pb-16">
-      <h1 className="font-serif text-5xl tracking-tight text-foreground mb-16">
+    <div className="w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-12 pt-16 md:pt-24 pb-24">
+      <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground mb-16">
         Selected Work
       </h1>
       

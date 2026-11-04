@@ -34,7 +34,10 @@ export function ThemeToggle() {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   if (!mounted) return <div className="w-10 h-10" />;
 
@@ -55,9 +58,11 @@ export function ThemeToggle() {
           modes={['light', 'dark']}
           aria-label="Toggle theme"
           variant="ghost"
-          className="text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
+          hoverScale={1.08}
+          tapScale={0.92}
+          className="text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 w-10 h-10 rounded-lg flex items-center justify-center transition-colors cursor-pointer"
         >
-          <ThemeTogglerButtonIcon light={<SunIcon />} dark={<MoonIcon />} />
+          <ThemeTogglerButtonIcon light={<SunIcon />} dark={<MoonIcon />} rotate={180} />
         </ThemeTogglerButton>
       )}
     </ThemeToggler>

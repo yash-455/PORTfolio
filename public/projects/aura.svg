@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="auraBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161616"/>
+      <stop offset="100%" stop-color="#0f0f0f"/>
+    </linearGradient>
+    <linearGradient id="graphGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ededed" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ededed" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#auraBg)" rx="16"/>
+  <rect x="1" y="1" width="798" height="498" fill="none" stroke="#2e2e2e" stroke-width="1.5" rx="15"/>
+
+  <!-- Top Metrics Bar -->
+  <g transform="translate(50, 45)">
+    <rect x="0" y="0" width="215" height="90" rx="8" fill="#1c1c1c" stroke="#2e2e2e" stroke-width="1"/>
+    <text x="20" y="30" font-family="sans-serif" font-size="11" letter-spacing="1.5" fill="#737373" text-transform="uppercase">Throughput</text>
+    <text x="20" y="65" font-family="serif" font-size="28" fill="#ffffff">99.98%</text>
+    <text x="145" y="65" font-family="monospace" font-size="11" fill="#4ade80">+2.4%</text>
+
+    <rect x="240" y="0" width="220" height="90" rx="8" fill="#1c1c1c" stroke="#2e2e2e" stroke-width="1"/>
+    <text x="260" y="30" font-family="sans-serif" font-size="11" letter-spacing="1.5" fill="#737373" text-transform="uppercase">Latency (p99)</text>
+    <text x="260" y="65" font-family="serif" font-size="28" fill="#ffffff">18.4ms</text>
+    <text x="390" y="65" font-family="monospace" font-size="11" fill="#4ade80">-4ms</text>
+
+    <rect x="485" y="0" width="215" height="90" rx="8" fill="#1c1c1c" stroke="#2e2e2e" stroke-width="1"/>
+    <text x="505" y="30" font-family="sans-serif" font-size="11" letter-spacing="1.5" fill="#737373" text-transform="uppercase">Daily Ingestion</text>
+    <text x="505" y="65" font-family="serif" font-size="28" fill="#ffffff">1.42 TB</text>
+  </g>
+
+  <!-- Large Data Visualization Graph -->
+  <g transform="translate(50, 160)">
+    <rect x="0" y="0" width="700" height="290" rx="10" fill="#191919" stroke="#2e2e2e" stroke-width="1"/>
+    <text x="30" y="40" font-family="serif" font-size="20" fill="#ffffff">Traffic Velocity &amp; Anomaly Distribution</text>
+    <text x="30" y="60" font-family="sans-serif" font-size="11" fill="#737373">Real-time metrics stream · 60s smoothing window</text>
+
+    <!-- Grid lines -->
+    <line x1="30" y1="90" x2="670" y2="90" stroke="#262626" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="30" y1="145" x2="670" y2="145" stroke="#262626" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="30" y1="200" x2="670" y2="200" stroke="#262626" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="30" y1="250" x2="670" y2="250" stroke="#333333" stroke-width="1"/>
+
+    <!-- Graph Path Area Fill -->
+    <path d="M 30 250 L 30 210 Q 90 190, 140 220 T 250 170 T 360 130 T 470 150 T 580 100 T 670 120 L 670 250 Z" fill="url(#graphGradient)"/>
+    
+    <!-- Graph Stroke Line -->
+    <path d="M 30 210 Q 90 190, 140 220 T 250 170 T 360 130 T 470 150 T 580 100 T 670 120" fill="none" stroke="#ededed" stroke-width="2.5"/>
+
+    <!-- Key Data Points -->
+    <circle cx="360" cy="130" r="5" fill="#ededed" stroke="#111111" stroke-width="2"/>
+    <circle cx="580" cy="100" r="5" fill="#ffffff" stroke="#111111" stroke-width="2"/>
+
+    <!-- Tooltip over peak -->
+    <rect x="540" y="55" width="80" height="30" rx="4" fill="#292929" stroke="#444444" stroke-width="1"/>
+    <text x="580" y="74" font-family="monospace" font-size="10" fill="#ffffff" text-anchor="middle">24.8k req/s</text>
+  </g>
+</svg>

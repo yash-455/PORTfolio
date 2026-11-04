@@ -16,8 +16,11 @@ const config: Config = {
         border: "var(--border)",
       },
       fontFamily: {
-        serif: ["var(--font-instrument)"],
-        sans: ["var(--font-geist)"],
+        serif: ["var(--font-instrument)", "Instrument Serif", "Georgia", "serif"],
+        sans: ["var(--font-geist-sans)", "Geist Sans", "sans-serif"],
+        heading: ["var(--font-instrument)", "Instrument Serif", "Georgia", "serif"],
+        display: ["Syne", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "Geist Mono", "ui-monospace", "monospace"],
       },
     },
   },
