@@ -1,18 +1,7 @@
 "use client";
 
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 import { useEffect, useState } from 'react';
-
-import { 
-  ThemeToggler, 
-  type Resolved, 
-  type ThemeSelection 
-} from '@animate-ui/react/primitives/effects/theme-toggler';
-
-import {
-  ThemeTogglerButton,
-  ThemeTogglerButtonIcon,
-} from '@/components/animate-ui/buttons/theme-toggler';
 
 const SunIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -31,7 +20,7 @@ const MoonIcon = () => (
 );
 
 export function ThemeToggle() {
-  const { theme, resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -41,30 +30,16 @@ export function ThemeToggle() {
 
   if (!mounted) return <div className="w-10 h-10" />;
 
-  const currentTheme = theme === 'system' ? resolvedTheme : theme;
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <ThemeToggler
-      theme={theme as ThemeSelection}
-      resolvedTheme={resolvedTheme as Resolved}
-      setTheme={setTheme}
-      direction={currentTheme === 'light' ? 'ltr' : 'rtl'}
+    <button
+      type="button"
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 w-10 h-10 rounded-lg flex items-center justify-center transition-colors cursor-pointer"
     >
-      {({ effective, toggleTheme }) => (
-        <ThemeTogglerButton
-          theme={effective as ThemeSelection}
-          resolvedTheme={resolvedTheme as Resolved}
-          setTheme={toggleTheme}
-          modes={['light', 'dark']}
-          aria-label="Toggle theme"
-          variant="ghost"
-          hoverScale={1.08}
-          tapScale={0.92}
-          className="text-muted hover:text-foreground hover:bg-black/5 dark:hover:bg-white/10 w-10 h-10 rounded-lg flex items-center justify-center transition-colors cursor-pointer"
-        >
-          <ThemeTogglerButtonIcon light={<SunIcon />} dark={<MoonIcon />} rotate={180} />
-        </ThemeTogglerButton>
-      )}
-    </ThemeToggler>
+      {isDark ? <MoonIcon /> : <SunIcon />}
+    </button>
   );
 }
